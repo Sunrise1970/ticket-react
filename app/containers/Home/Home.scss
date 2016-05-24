@@ -1,0 +1,17 @@
+@import '../../static/sass/common.scss';
+$blue: blue;
+.test {
+    h2{
+      color: red;
+      @include font-dpr(16px);
+      height: 2.346667rem;
+      display: flex;
+      background-color: $blue;
+      align-self:center;
+      justify-content: center;
+      align-items: center;
+      flex: 2;
+      -webkit-flex-wrap: wrap;
+      align-content: center;
+    }
+}

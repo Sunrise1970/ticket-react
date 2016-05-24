@@ -7,6 +7,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 // 单独样式文件
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var node_modules = path.resolve(__dirname, 'node_modules');
+var autoprefixer = require('autoprefixer');
+var px2rem = require('postcss-px2rem');
 
 module.exports = {
     entry: {
@@ -48,8 +50,8 @@ module.exports = {
           loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         },
         {
-          test: /\.sass/,
-          loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+          test: /\.scss/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
         },
         {
           test: /\.(png|jpg)$/,
@@ -61,6 +63,13 @@ module.exports = {
         }
       ]
     },
+    // devServer: {
+    //   publicPath: "/",
+    //   stats: { colors: true },
+    //   port: 8080,
+    //   contentBase: 'build',
+    //   inline: true
+    // },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
@@ -74,5 +83,6 @@ module.exports = {
           allChunks: true,
           disable: false
       }),
-    ]
+    ],
+    postcss: [autoprefixer({browsers: ['> 1%', 'last 2 versions']})]
 };
