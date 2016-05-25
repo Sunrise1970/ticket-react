@@ -1,0 +1,54 @@
+@import '../../static/sass/common.scss';
+.search-bar {
+    position:relative;
+    display: flex;
+    width: 100%;
+    height: 1.733333rem;
+    align-items: center;
+    background-color: #0e63c6;
+    .alink-back {
+        display: flex;
+        width: 1.333333rem;
+        height:100%;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+    .search-keyword {
+        width: 100%;
+        position: relative;
+        color: #a0a0a0;
+        transition: transform .3s ease;
+        will-change:transform;
+        transform: translateX(0) translateZ(0);
+        span {
+          position: absolute;
+          top: 50%;
+          left: 0.4rem;
+          transform: translateY(-50%);  
+        }
+        input {
+            display: inline-block;
+            width: 100%;
+            border: none;
+            @include font-dpr(14px);
+            padding: 0.333333rem 0.41rem;
+            border-radius: 0.133333rem;
+            text-indent: 0.64rem;
+        }
+    }
+    .search-keyword.active {
+        transform: translateX(-0.733333rem) translateZ(0);
+    }
+    .search-close {
+        display: flex;
+        width: 1.333333rem;
+        height:100%;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+}

@@ -1,14 +1,32 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
+import './SearchBar.scss';
 
 class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+  state = {
+      focus: false,
+      value: 'value'
+  }
   static PropTypes = {
     history: PropTypes.object.isRequired
   }
-  getRef(ref){ 
+  getRef(ref) { 
     this.keywordRef = ref;
   }
-  handleSubmit(event){
+  searchFocus() {
+    this.setState({focus: true});
+  }
+  searchClose() {
+    this.setState({focus: false});
+  }
+  handleChange(event) {
+    console.log(event);
+    this.setState({value: event.target.value});
+  }
+  handleSubmit(event) {
     const keyword = this.keywordRef.value;
     this.keywordRef.value = '';
 
@@ -16,17 +34,21 @@ class SearchBar extends Component {
     browserHistory.push(path)
 
   }
-  render(){
+  render() {
+    let search = this.state.focus ? 'search-keyword active' : 'search-keyword';
+    let value = this.state.value; 
     return (
-      <div className="col-sm-12">
-        <form onSubmit={() => this.handleSubmit()}>
-          <div className="form-group col-sm-7">
-            <input type="text" className="form-control" ref={(ref) => this.getRef(ref)} />
-          </div>
-          <div className="form-group col-sm-5">
-            <button type="submit" className="btn btn-block btn-primary">搜索 Github</button>
-          </div>
-        </form>
+      <div className="search-bar">
+        <div className="alink-back">
+          <span className="icon-back"></span>
+        </div>
+        <div className={search}>
+          <span className="icon-search"></span>
+          <input type="text" placeholder="搜索关键字" onChange={this.handleChange.bind(this)} ref={(ref) => this.getRef(ref)} onFocus={this.searchFocus.bind(this)} />
+        </div>
+        <div className="search-close" onClick={this.searchClose.bind(this)}>
+          取消
+        </div>
       </div>
     )
   }
