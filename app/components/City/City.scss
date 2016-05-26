@@ -1,0 +1,17 @@
+@import '../../static/sass/common.scss';
+
+.city-wrap {
+    @extend %main-wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.04rem;
+    color: #666666;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+    @include font-dpr(14px);
+    font-weight: 600;
+    .city-select {
+        color: $public-color;
+    }
+}

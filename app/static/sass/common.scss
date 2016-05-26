@@ -1,3 +1,21 @@
 @import '../../../node_modules/normalize.css/normalize.css';
 @import 'function/fontDpr.scss';
 @import 'function/iconFont.scss';
+
+// reset
+html { font-family: "微软雅黑","Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif; }
+html, button, input, select, textarea { font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6, p, figure, form, blockquote { margin: 0; }
+ul, ol, li, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none outside none; }
+h1, h2, h3 { line-height: 2; font-weight: normal; }
+
+// public
+%main-wrap {
+    box-sizing: border-box;
+    padding-left: 0.426667rem;
+    padding-right: 0.426667rem;
+}
+
+// color
+$public-color: #0e63c6;

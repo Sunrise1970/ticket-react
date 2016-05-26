@@ -1,17 +1,13 @@
 import React, { Component, PropTypes } from 'react';
-import { browserHistory } from 'react-router';
-import './SearchBar.scss';
+import './City.scss';
 
-class SearchBar extends Component {
+class City extends Component {
   constructor(props) {
     super(props);
   }
   state = {
       focus: false,
       value: 'value'
-  }
-  static PropTypes = {
-    history: PropTypes.object.isRequired
   }
   getRef(ref) { 
     this.keywordRef = ref;
@@ -38,20 +34,16 @@ class SearchBar extends Component {
     let search = this.state.focus ? 'search-keyword active' : 'search-keyword';
     let value = this.state.value; 
     return (
-      <div className="search-bar">
-        <div className="alink-back">
-          <span className="icon-back"></span>
+      <div className="city-wrap">
+        <div className="city-now">
+          当前城市： <span id="city-now">广州</span>
         </div>
-        <div className={search}>
-          <span className="icon-search"></span>
-          <input type="text" placeholder="搜索关键字" onChange={this.handleChange} ref={(ref) => this.getRef(ref)} onFocus={this.searchFocus} />
-        </div>
-        <div className="search-close" onClick={this.searchClose}>
-          取消
+        <div className="city-select" onClick={this.searchClose}>
+          切换城市<span className="icon-arrow-right"></span>
         </div>
       </div>
     )
   }
 }
 
-export default SearchBar;
+export default City;

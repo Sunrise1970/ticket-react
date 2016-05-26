@@ -1,0 +1,61 @@
+@import '../../static/sass/common.scss';
+
+.scenic-list {
+  @extend %main-wrap;
+  li {
+    display: flex;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e0e0e0;
+    .list-img img {
+      display: inline-block;
+      width: 2.133333rem;
+      height: 2.133333rem;
+    }
+    .list-detail {
+      flex: 1;
+      padding-left: 0.4rem;
+      .list-detail-title {
+        height: 1.066667rem;
+        h3 {
+          @include font-dpr(16px);
+          font-weight: 400;
+          color: #333;
+        }
+      }
+      li {
+        padding: 0;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        .list-detail-left {
+          .list-detail-label {
+            padding: 0.053333rem 0.093333rem;
+            color: #fff;
+            background-color: #0fbfb6;
+          }
+          .list-detail-distance {
+            color: #999999;
+            @include font-dpr(10px);
+          }
+        }
+        .list-detail-right {
+          .list-detail-price {
+            color: #e95e28;
+            strong {
+              font-weight: normal;
+              @include font-dpr(18px);
+            }
+          }
+          .list-detail-del-price {
+            color: #999999;
+            @include font-dpr(10px);
+          }
+          .icon-money {
+            @include font-dpr(10px);
+          }
+        }
+      }
+    }
+  }
+}

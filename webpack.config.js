@@ -11,14 +11,7 @@ var autoprefixer = require('autoprefixer');
 var px2rem = require('postcss-px2rem');
 
 module.exports = {
-    entry: {
-      index: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:3000',
-        path.resolve(__dirname, 'app/index.js')
-      ],
-      vendor: ['react', 'react-dom']
-    },
+    entry: path.resolve(__dirname, 'app/index.js'),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: "[name].js",
@@ -33,6 +26,20 @@ module.exports = {
     'display-error-details': true,
     // 使用externals可以将react分离，然后用<script>单独将react引入
     externals: [],
+    // devServer: {
+    //   publicPath: "/",
+    //   stats: { colors: true },
+    //   port: 3000,
+    //   contentBase: 'build',
+    //   inline: true,
+    //   proxy: [
+    //       {
+    //         path: '/basic/trip',
+    //         target: "http://10.100.112.198:9970",
+    //         changeOrigin: true
+    //       }
+    //   ]
+    // },
     module: {
       // 使用module.noParse针对单独的react.min.js这类没有依赖的模块，速度会更快
       noParse: [
@@ -63,13 +70,6 @@ module.exports = {
         }
       ]
     },
-    // devServer: {
-    //   publicPath: "/",
-    //   stats: { colors: true },
-    //   port: 8080,
-    //   contentBase: 'build',
-    //   inline: true
-    // },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
