@@ -4,7 +4,7 @@ import { App, Home, Bill } from '../containers';
 
 export default (
   <Route path="/" component={App}>
-    <Route path="bill/:keyword" component={Bill} />
+    <Route path="bill/:id" component={Bill} />
     <IndexRoute component={Home} />
   </Route>
 )

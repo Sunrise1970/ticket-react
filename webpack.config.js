@@ -11,7 +11,14 @@ var autoprefixer = require('autoprefixer');
 var px2rem = require('postcss-px2rem');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'app/index.js'),
+    entry: {
+      index: [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:3000',
+        path.resolve(__dirname, 'app/index.js')
+      ],
+      vendor: ['react', 'react-dom']
+    },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: "[name].js",

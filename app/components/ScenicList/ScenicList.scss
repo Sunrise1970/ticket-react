@@ -1,6 +1,10 @@
 @import '../../static/sass/common.scss';
 
 .scenic-list {
+  .scenic-info {
+    display: flex;
+    width: 100%;
+  }
   @extend %main-wrap;
   li {
     display: flex;
